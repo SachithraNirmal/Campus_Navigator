@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         LoginView() // Displays the login screen
+
     }
 }
 

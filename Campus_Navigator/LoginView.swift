@@ -5,14 +5,15 @@ struct LoginView: View {
     @State private var password: String = ""
 
     var body: some View {
+        NavigationView {
         VStack(spacing: 20) {
-            // Title
+         
             Text("Welcome !")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.top, 40)
 
-            // Email Input
+            
             VStack(alignment: .leading, spacing: 5) {
                 Text("Email")
                     .font(.caption)
@@ -22,7 +23,7 @@ struct LoginView: View {
             }
             .padding(.horizontal)
 
-            // Password Input
+           
             VStack(alignment: .leading, spacing: 5) {
                 Text("Password")
                     .font(.caption)
@@ -36,7 +37,7 @@ struct LoginView: View {
             }
             .padding(.horizontal)
 
-            // Forgot Password Button
+            
             HStack {
                 Spacer()
                 Button(action: {}) {
@@ -47,19 +48,19 @@ struct LoginView: View {
             }
             .padding(.horizontal)
 
-            // Login Button
+            
             Button(action: {}) {
                 Text("Log In")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.yellow)
                     .cornerRadius(10)
             }
             .padding(.horizontal)
 
-            // OR Divider
+           
             HStack {
                 Rectangle().frame(height: 1).foregroundColor(.gray)
                 Text("Or")
@@ -69,24 +70,32 @@ struct LoginView: View {
             }
             .padding(.horizontal)
 
-            // Social Login Buttons
+            
             VStack(spacing: 10) {
                 SocialLoginButton(icon: "applelogo", text: "Continue with Apple")
-                SocialLoginButton(icon: "globe", text: "Continue with Google")
+                SocialLoginButton(icon: "google_logo", text: "Continue with Google")
                 SocialLoginButton(icon: "facebook", text: "Continue with Facebook")
             }
 
-            // Sign Up Prompt
-            HStack {
-                Text("Don’t have an account?")
-                    .foregroundColor(.gray)
-                Button(action: {}) {
-                    Text("Sign up")
-                        .fontWeight(.bold)
-                        .foregroundColor(.blue)
-                }
-            }
-            .padding(.top, 10)
+    
+            
+                        VStack {
+                            Spacer()
+
+                            HStack {
+                                Text("Don’t have an account?")
+                                    .foregroundColor(.gray)
+
+                                NavigationLink(destination: SignUpView()) {
+                                    Text("Sign up")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.blue)
+                                }
+                            }
+                            .padding(.bottom, 10)
+                        }
+                        
+                    }
 
             Spacer()
         }
@@ -94,7 +103,7 @@ struct LoginView: View {
     }
 }
 
-// Custom Button for Social Login
+
 struct SocialLoginButton: View {
     let icon: String
     let text: String
@@ -114,7 +123,7 @@ struct SocialLoginButton: View {
     }
 }
 
-// Preview
+
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
