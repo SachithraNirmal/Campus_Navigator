@@ -5,7 +5,7 @@ struct Facility: Identifiable {
     let name: String
     let hours: String
     let status: String
-    let logo: String // Replace with actual image asset if needed
+    let logo: String 
 }
 
 struct FacilitiesView: View {
